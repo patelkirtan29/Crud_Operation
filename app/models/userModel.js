@@ -34,6 +34,12 @@ userModelSchema.pre('save', async function (next) {
     next();
 });
 
+//hashing after updating it to db
+userModelSchema.pre('findOneAndUpdate', async function (next) {
+    const salt = await bcrypt.genSalt();
+    this._update.password = await bcrypt.hash(this._update.password, salt);
+    next();
+});
 
 const userList = con.model('user', userModelSchema);
 
