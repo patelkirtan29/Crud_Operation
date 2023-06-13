@@ -7,12 +7,13 @@ Content-Type: application/json
 
 {
  
-  "name": "Raj",
+  "name": "demo2",
   "contact": 852316497,
-  "email": "raj@gmail.com",
+  "email": "demo2@gmail.com",
   "address": "Ramdevnagar, Ahmedabad",
-  "password": "raj@123",
-  "__v": 0
+  "password": "demo@123",
+  "__v": 0,
+  "role": 2
 }
 ###
 PUT http://127.0.0.1:3001/users/6478446a5897fe1a5f386d86
@@ -28,5 +29,8 @@ Content-Type: application/json
 
 
 ### 
-DELETE http://127.0.0.1:3001/users/64786b5d51fab539ff4e104d
+DELETE http://127.0.0.1:3001/users/64870c4b1a4e741a0fec6879
 Content-Type: application/json
+
+###
+GET http://127.0.0.1:3001/seed

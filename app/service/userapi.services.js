@@ -27,7 +27,8 @@ module.exports.adduser = async (user) => {
                 contact: user.contact,
                 email: user.email,
                 address: user.address,
-                password: user.password
+                password: user.password,
+                role: user.role
             });
             return addedUser
         }

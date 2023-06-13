@@ -19,7 +19,12 @@ const userModelSchema = new mongoose.Schema({
     },
     password: {
         type: String
+    },
+    model: {
+        type: Number
     }
+}, {
+    strict: false
 });
 
 userModelSchema.post('save', (doc, next) => {
@@ -44,3 +49,13 @@ userModelSchema.pre('findOneAndUpdate', async function (next) {
 const userList = con.model('user', userModelSchema);
 
 module.exports = { userList, userModelSchema };
+
+async function up() {
+    await con.collection('user').updateMany({}, {
+        $rename: { name: 'username' }
+    }, {
+        multi: true
+    })
+    
+}
+up();
